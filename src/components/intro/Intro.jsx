@@ -1,4 +1,4 @@
-import TypingEffect from '../features/typingEffect';
+import TypingEffect from '../features/TypingEffect';
 
 const Intro = () => {
   return (
