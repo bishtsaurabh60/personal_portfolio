@@ -20,8 +20,8 @@ const App = () => {
 
   return (
     <main
-      className={`no-scrollbar ${
-        darkMode ? "bg-[#222] text-white" : "bg-white"
+      className={`${
+        darkMode ? "bg-[#222] text-white" : "text-[#333]"
       }`}
     >
       <ScrollToTop />
@@ -30,7 +30,7 @@ const App = () => {
       <About />
       <Skills />
       <Services />
-      <Suspense fallback=<div></div>>
+      <Suspense fallback={<div></div>}>
         <Work />
       </Suspense>
       <Contact />

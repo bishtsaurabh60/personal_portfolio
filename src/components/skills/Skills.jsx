@@ -1,12 +1,13 @@
 import {useEffect,useState, useContext } from "react";
 import SkillCard from "./SkillCard";
-import { frontEnd, backEnd } from "./skillSet";
 import { UiContext } from "../../context";
+import { useSanityFetch } from "../customHook/useSanityFetch";
 
 const Skills = () => {
   const [isAnimate, setIsAnimate] = useState(false);
   const { skillsRef } = useContext(UiContext);
-
+  const [frontEnd] = useSanityFetch('*[_type == "skillsFront"]  | order(_createdAt asc)');
+  const [backEnd] = useSanityFetch('*[_type == "skillsBack"]  | order(_createdAt asc)');
 
   // Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport. 
   // here we used intersection Observer for triggering the animation on scroll...

@@ -1,4 +1,5 @@
-const Card = ({ service, details, imgSrc, i }) => {
+import { urlFor } from "../../client";
+const Card = ({ service, details, image, i }) => {
   return (
     <section
       className={`flex-1 group relative flex justify-center items-center hover:scale-110 transition-all rounded-[2rem] bg-white h-[25vh] sm:h-[30vh] md:h-[35vh] lg:h-[45vh] w-full
@@ -15,7 +16,7 @@ const Card = ({ service, details, imgSrc, i }) => {
              `}
     >
       <img
-        src={imgSrc}
+        src={urlFor(image)}
         alt=""
         className="w-full h-full absolute top-0 left-0 object-cover shadow-2xl drop-shadow-2xl rounded-[2rem]"
         loading="lazy"

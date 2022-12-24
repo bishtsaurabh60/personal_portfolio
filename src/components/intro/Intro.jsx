@@ -19,26 +19,24 @@ const Intro = () => {
             <TypingEffect />
           </article>
 
-          <p className="font-normal hidden md:block">
-            I design and develop services for customers of all sizes,
-            specializing in creating stylish, modern websites, web services and
-            online stores.
+          <p className="font-normal hidden md:block text-lg">
+            I design and develop Web applications, specializing in creating
+            stylish, modern websites, web services.
           </p>
         </article>
       </article>
 
       <article id="person_image" className="flex-1 relative">
-        <article className="clip-path-style bg-amber-400 absolute w-full h-full">
-        </article>
+        <article className="clip-path-style bg-amber-400 absolute w-full h-full"></article>
         <img
           src="src/assets/me.png"
           alt=""
           className="w-full h-full object-cover object-top absolute"
-          loading='lazy'
+          loading="lazy"
         />
         <p className="backdrop-opacity-95 backdrop-brightness-90 bg-black/30 drop-shadow-lg font-normal w-5/6 m-2 p-2 absolute top-1/2 text-white right-0 md:hidden">
-          I design and develop services for customers of all sizes, specializing
-          in creating stylish, modern websites, web services and online stores.
+          I design and develop Web applications, specializing in creating
+          stylish, modern websites, web services.
         </p>
       </article>
     </section>

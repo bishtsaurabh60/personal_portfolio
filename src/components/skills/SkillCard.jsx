@@ -7,8 +7,8 @@ const SkillCard = ({stack,skills,isAnimate}) => {
         </h1>
         <section className="w-4/5 rounded-[30px] p-4">
           <article className="">
-            {stack?.map(({ skill, expertise }) => (
-              <div className="py-1" key={skill + Date.now()}>
+            {stack?.map(({ skill, expertise },i) => (
+              <div className="py-1" key={skill + i}>
                 <article className="m-0">
                   <span className="text-1xl font-[500] my-5">{skill}</span>
                 </article>

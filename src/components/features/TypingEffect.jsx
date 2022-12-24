@@ -5,7 +5,7 @@ const TypingEffect = () => {
       <article className="text-amber-400">
         <Typewriter
           options={{
-            strings: ["Self-taught.","MERN Developer.", "Web Developer.", "Tech Enthusiast."],
+            strings: ["Self-Taught.","MERN Developer.", "Web Developer.", "Tech Enthusiast."],
             autoStart: true,
             loop: true,
           }}

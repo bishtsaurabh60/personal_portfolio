@@ -25,26 +25,6 @@ function ThemeUiProvider({ children }) {
     });
   };
 
-  // useEffect(() => {
-  //   const handleScroll = (e) => {
-  //     if (window.scrollY >= 0 && window.scrollY <= window.innerHeight / 2) {
-  //       // Set states for nav items here if the user is on the first section
-  //     } else if (
-  //       servicesRef.current.offsetTop - window.scrollY < window.innerHeight / 2 &&
-  //       stuffRef.current.offsetTop - window.scrollY >= window.innerHeight / 2
-  //     ) {
-  //       // For the about section
-  //     } else {
-  //       // Etc...
-  //     }
-  //   };
-  //   document.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     document.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
-
   return (
     <UiContext.Provider
       value={{
