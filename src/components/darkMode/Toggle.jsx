@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { UiContext } from "../../context";
+import sun from '../../assets/sun.png';
+import moon from '../../assets/moon.png';
 
 const Toggle = () => {
     const { state,dispatch } = useContext(UiContext);
@@ -11,8 +13,8 @@ const Toggle = () => {
       onClick={handleClick}
       className="w-12 h-6 rounded-3xl bg-[#999] top-3 right-3 z-50 flex items-center justify-around"
     >
-      <img src="src/assets/sun.png" alt="sun" className="w-4 h-4" />
-      <img src="src/assets/moon.png" alt="moon" className="w-4 h-4" />
+      <img src={sun} alt="sun" className="w-4 h-4" />
+      <img src={moon} alt="moon" className="w-4 h-4" />
       <div
         className={`${
           state.darkMode

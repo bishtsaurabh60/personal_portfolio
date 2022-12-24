@@ -1,4 +1,5 @@
 import TypingEffect from '../features/TypingEffect';
+import me from '../../assets/me.png';
 
 const Intro = () => {
   return (
@@ -29,7 +30,7 @@ const Intro = () => {
       <article id="person_image" className="flex-1 relative">
         <article className="clip-path-style bg-amber-400 absolute w-full h-full"></article>
         <img
-          src="src/assets/me.png"
+          src={me}
           alt=""
           className="w-full h-full object-cover object-top absolute"
           loading="lazy"

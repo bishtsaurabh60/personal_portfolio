@@ -1,6 +1,9 @@
 import {useContext } from 'react';
 import { UiContext } from "../../context";
 import { BsFileEarmarkRichtext } from 'react-icons/bs';
+import person_high from '../../assets/person_high.jpg';
+import person_mid from '../../assets/person_mid.jpg';
+import person_low from '../../assets/person_low.jpg';
 
 const About = () => {
   const {aboutRef} = useContext(UiContext);
@@ -15,13 +18,13 @@ const About = () => {
 
         <article className="w-3/4 h-[30vh] rounded-[30px] overflow-hidden relative md:h-[70vh] shadow-2xl">
           <img
-            srcSet="src/assets/person_high.jpg 3x,
-                    src/assets/person_mid.jpg 2x,
-                    src/assets/person_low.jpg 1.5x"
-            src="src/assets/person_low.jpg"
+            srcSet={`${person_high} 3x,
+                    ${person_mid} 2x,
+                    ${person_low} 1.5x`}
+            src={person_low}
             alt="aboutImg"
             className="w-full h-full object-cover"
-            loading='lazy'
+            loading="lazy"
           />
         </article>
       </article>
