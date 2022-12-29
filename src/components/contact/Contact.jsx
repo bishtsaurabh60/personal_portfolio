@@ -51,17 +51,17 @@ const Contact = () => {
             <span className="text-amber-400">Project</span>
           </h1>
           {details?.map(({ icon, detail, hrefTo }, i) => (
-            <article key={i} className="w-fit">
+            <article key={i} className="w-full">
               <a
                 href={`${hrefTo}:${detail}`}
-                className="flex items-center justify-start gap-4 p-4"
+                className="flex items-center justify-start gap-4 p-3 bg-red-100/[0.3] rounded-xl m-1"
               >
                 <img
                   src={urlFor(icon)}
                   alt=""
                   className="h-8 w-8 drop-shadow-2xl"
                 />
-                <p className="text-md">{detail}</p>
+                <p className="text-sm">{detail}</p>
               </a>
             </article>
           ))}
