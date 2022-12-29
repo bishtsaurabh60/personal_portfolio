@@ -1,7 +1,11 @@
-import TypingEffect from '../features/TypingEffect';
-import me from '../../assets/me.png';
+import TypingEffect from "../features/TypingEffect";
+import { urlFor } from "../../client";
+import { useSanityFetch } from "../customHook/useSanityFetch";
 
 const Intro = () => {
+  const [profile] = useSanityFetch(
+    '*[_type=="profile"] | order(_createdAt desc)'
+  );
   return (
     <section id="intro" className="flex flex-col md:flex-row h-screen">
       <article
@@ -21,8 +25,7 @@ const Intro = () => {
           </article>
 
           <p className="font-normal hidden md:block text-lg">
-            I design and develop Web applications, specializing in creating
-            stylish, modern websites, web services.
+            {profile && profile[0].description}
           </p>
         </article>
       </article>
@@ -30,17 +33,16 @@ const Intro = () => {
       <article id="person_image" className="flex-1 relative">
         <article className="clip-path-style bg-amber-400 absolute w-full h-full"></article>
         <img
-          src={me}
+          src={profile && urlFor(profile[0].image)}
           alt=""
           className="w-full h-full object-cover object-top absolute"
           loading="lazy"
         />
         <p className="backdrop-opacity-95 backdrop-brightness-90 bg-black/30 drop-shadow-lg font-normal w-5/6 m-2 p-2 absolute top-1/2 text-white right-0 md:hidden">
-          I design and develop Web applications, specializing in creating
-          stylish, modern websites, web services.
+          {profile && profile[0].description}
         </p>
       </article>
     </section>
   );
-}
+};
 export default Intro;

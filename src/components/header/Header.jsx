@@ -35,13 +35,12 @@ const Header = () => {
     return () => window.removeEventListener("scroll", changeNavBg);
   }, []);
 
-
   const showColorSm = () =>
     showColor
       ? state.darkMode
-        ? "sm:bg-[#222] sm:text-white"
-        : "sm:bg-white"
-      : "sm:bg-transparent";
+        ? "sm:bg-[#222]/[0.2] sm:backdrop-blur-[8px]  sm:text-white"
+        : "sm:bg-[#fff]/[0.3] sm:backdrop-blur-[12px]"
+      : "";
 
   return (
     <>
@@ -52,9 +51,9 @@ const Header = () => {
           ${
             menu
               ? state.darkMode
-                ? "bg-[#222]"
-                : "bg-white"
-              : "bg-transparent"
+                ? "bg-[#222]/[0.2] backdrop-blur-[8px]"
+                : "bg-[#fff]/[0.3] backdrop-blur-[12px]"
+              : ""
           }`}
         >
           <article
@@ -79,12 +78,20 @@ const Header = () => {
           <nav className={`${menu ? "block" : "hidden"} mr-5 z-50 md:flex`}>
             <ul
               className={`${
-                state.darkMode ? "bg-[#222] text-white" : "bg-white"
-              } absolute w-full translate-y-[20%] left-0 md:flex drop-shadow-lg md:translate-y-0 md:static md:bg-transparent -top-3 text-center`}
+                state.darkMode
+                  ? "bg-[#222]/[0.6] text-white"
+                  : "bg-[#fff]/[0.6]"
+              }
+              
+              md:bg-transparent
+               absolute w-full translate-y-[20%] left-0 md:flex drop-shadow-lg md:translate-y-0 md:static -top-[0.55rem] text-center group`}
             >
               {navi.map(({ link, scroll }, i) => (
                 <li
-                  onClick={(e) => scrollOnClick(scroll)}
+                  onClick={(e) => {
+                    scrollOnClick(scroll);
+                    setMenu(!menu);
+                  }}
                   key={i}
                   className={`ml-3 p-1 m-1 underline-offset-8 decoration-4 hover:underline hover:text-amber-400 cursor-pointer`}
                 >

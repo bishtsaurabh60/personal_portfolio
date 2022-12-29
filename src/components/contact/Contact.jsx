@@ -1,19 +1,23 @@
-import {useContext, useRef, useState} from 'react';
-import { BsLinkedin, BsFillCheckCircleFill } from 'react-icons/bs';
-import { GoMarkGithub } from 'react-icons/go';
-import { GrTwitter } from 'react-icons/gr';
-import { RiSendPlaneFill } from 'react-icons/ri';
-import { UiContext } from '../../context';
+import { useContext, useRef, useState } from "react";
+import { IconContext } from "react-icons/lib";
+import { BsLinkedin, BsFillCheckCircleFill } from "react-icons/bs";
+import { GoMarkGithub } from "react-icons/go";
+import { GrTwitter } from "react-icons/gr";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { UiContext } from "../../context";
 import emailjs from "@emailjs/browser";
-import { urlFor } from '../../client';
-import { useSanityFetch } from '../customHook/useSanityFetch';
+import { urlFor } from "../../client";
+import { useSanityFetch } from "../customHook/useSanityFetch";
 
 const Contact = () => {
-
   const formRef = useRef(null);
-  const { state: { darkMode },contactRef } = useContext(UiContext);
+  const {
+    state: { darkMode },
+    contactRef,
+  } = useContext(UiContext);
   const [done, setDone] = useState(false);
   const [details] = useSanityFetch('*[_type=="info"]');
+  const [socialContacts] = useSanityFetch('*[_type=="socialContacts"]');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +51,7 @@ const Contact = () => {
             <span className="text-amber-400">Project</span>
           </h1>
           {details?.map(({ icon, detail, hrefTo }, i) => (
-            <article key={i} className='w-fit'>
+            <article key={i} className="w-fit">
               <a
                 href={`${hrefTo}:${detail}`}
                 className="flex items-center justify-start gap-4 p-4"
@@ -62,9 +66,28 @@ const Contact = () => {
             </article>
           ))}
           <article className="flex justify-start gap-6 pt-8 pl-3">
-            <GoMarkGithub className="social transition-all duration-300" />
-            <BsLinkedin className="social transition-all duration-300" />
-            <GrTwitter className="social transition-all duration-300" />
+            <IconContext.Provider value={{}}>
+              <a
+                href={socialContacts && socialContacts[0].social}
+                target="_blank"
+              >
+                <GoMarkGithub className="social transition-all duration-300" />
+              </a>
+
+              <a
+                href={socialContacts && socialContacts[1].social}
+                target="_blank"
+              >
+                <BsLinkedin className="social transition-all duration-300" />
+              </a>
+
+              <a
+                href={socialContacts && socialContacts[2].social}
+                target="_blank"
+              >
+                <GrTwitter className="social transition-all duration-300" />
+              </a>
+            </IconContext.Provider>
           </article>
           <article className="flex justify-start flex-col pt-8 pl-3 text-[0.8rem]">
             <p>@2022 SAURABH BISHT</p>
@@ -123,7 +146,7 @@ const Contact = () => {
               <article className="flex items-center gap-4">
                 <button
                   type="submit"
-                  className="group flex h-12 w-52 items-center justify-center gap-2 rounded-[2rem] bg-amber-400 text-lg font-medium shadow-2xl drop-shadow-2xl transition-all hover:bg-amber-500 active:translate-y-1"
+                  className="group flex h-12 w-52 items-center justify-center gap-2 rounded-[2rem] bg-amber-400 text-lg font-medium shadow-2xl drop-shadow-2xl transition-all hover:bg-amber-400 active:translate-y-1"
                 >
                   <span>Send Message</span>
                   <RiSendPlaneFill className="h-6 w-6 transition-all duration-500 group-hover:rotate-45" />
@@ -135,7 +158,8 @@ const Contact = () => {
           <div className="flex flex-col flex-1 gap-4 text-center align-center h-full py-[12rem]">
             <BsFillCheckCircleFill className="h-20 w-20 text-green-700 transition-all self-center" />
             <h1 className="font-extrabold text-4xl">
-              ...ThankYou For <span className='text-amber-400'>Reaching Us...</span>
+              ...ThankYou For{" "}
+              <span className="text-amber-400">Reaching Us...</span>
             </h1>
           </div>
         )}

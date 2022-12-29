@@ -1,12 +1,15 @@
-import {useContext } from 'react';
+import { useContext } from "react";
 import { UiContext } from "../../context";
-import { BsFileEarmarkRichtext } from 'react-icons/bs';
-import person_high from '../../assets/person_high.jpg';
-import person_mid from '../../assets/person_mid.jpg';
-import person_low from '../../assets/person_low.jpg';
+import { IconContext } from "react-icons/lib";
+import { BsFileEarmarkRichtext } from "react-icons/bs";
+import { urlFor } from "../../client";
+import { useSanityFetch } from "../customHook/useSanityFetch";
 
 const About = () => {
-  const {aboutRef} = useContext(UiContext);
+  const { aboutRef } = useContext(UiContext);
+  const [aboutMySelf] = useSanityFetch(
+    '*[_type=="about"] | order(_createdAt desc)'
+  );
   return (
     <section
       id="about"
@@ -18,10 +21,7 @@ const About = () => {
 
         <article className="w-3/4 h-[30vh] rounded-[30px] overflow-hidden relative md:h-[70vh] shadow-2xl">
           <img
-            srcSet={`${person_high} 3x,
-                    ${person_mid} 2x,
-                    ${person_low} 1.5x`}
-            src={person_low}
+            src={aboutMySelf && urlFor(aboutMySelf[0].image)}
             alt="aboutImg"
             className="w-full h-full object-cover"
             loading="lazy"
@@ -37,23 +37,21 @@ const About = () => {
           <span className="text-amber-400 drop-shadow-lg">PERFECTION!</span>
         </p>
         <p className="text-justify mx-12 py-3">
-          Highly motivated self-taught developer building web applications and
-          services. Familiar with front-end and back-end development as well as
-          deployment process for many web-based technologies. Have expertise in
-          frameworks and libraries such as REACT.JS for the front-end, NODE.JS,
-          EXPRESS.JS for the back-end, and MONGO DB for the database. Currently,
-          I'm focused on building responsive FULL-STACK Web applications.
+          {aboutMySelf && aboutMySelf[0].aboutMe}
         </p>
-        <a
-          href=""
-          download
-          className="inline-flex justify-center items-center w-60 mt-2 mb-10 md:mb-0 text-xl font-semibold h-14 bg-amber-400 drop-shadow-2xl rounded-full hover:scale-110 hover:bg-amber-500 active:translate-y-[6px] transition-all"
-        >
-          <button className="inline-flex items-center gap-2 drop-shadow-lg">
+        <button className="inline-flex justify-center items-center w-60 mt-2 mb-10 md:mb-0 text-xl font-semibold h-14 bg-amber-400 drop-shadow-2xl rounded-full hover:scale-110 hover:bg-amber-400 active:translate-y-[6px] transition-all">
+          <a
+            href={aboutMySelf && aboutMySelf[0].resume}
+            download
+            target="_blank"
+            className="inline-flex items-center gap-2 drop-shadow-lg"
+          >
             <span>Download CV</span>
-            <BsFileEarmarkRichtext />
-          </button>
-        </a>
+            <IconContext.Provider value={{}}>
+              <BsFileEarmarkRichtext />
+            </IconContext.Provider>
+          </a>
+        </button>
       </article>
     </section>
   );

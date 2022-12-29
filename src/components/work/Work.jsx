@@ -1,8 +1,8 @@
 import { GoMarkGithub } from "react-icons/go";
-import { FaPlayCircle } from 'react-icons/fa';
-import { useContext } from 'react';
-import { UiContext } from '../../context';
-import { urlFor} from '../../client';
+import { FaPlayCircle } from "react-icons/fa";
+import { useContext } from "react";
+import { UiContext } from "../../context";
+import { urlFor } from "../../client";
 import { useSanityFetch } from "../customHook/useSanityFetch";
 
 const Work = () => {
@@ -17,7 +17,9 @@ const Work = () => {
       id="work"
       className="flex flex-col justify-center w-full"
     >
-      <h1 className="text-6xl font-bold text-center">Work</h1>
+      <h1 className="text-6xl font-bold text-center">
+        My <span className="text-amber-400">Work</span>
+      </h1>
       <article className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-5 m-8 text-white">
         {projects?.map(
           ({ project, technologies, image, details, gitLink, live }, i) => (
