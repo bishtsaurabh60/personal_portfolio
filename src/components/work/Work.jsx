@@ -33,7 +33,7 @@ const Work = () => {
                 className="w-full h-full object-cover rounded-[2rem] shadow-2xl"
                 loading="lazy"
               />
-              <article className="no-scrollbar overflow-y-auto flex cursor-pointer justify-center flex-col absolute group-hover:h-full top-0 left-0 overflow-auto lg:overflow-hidden rounded-[2rem] bg-black/30 h-0 w-full transition-all duration-500 box-border p-5 clip-path-style2 group-hover:left-0 group-hover:clip-path-circle group-hover:transition-all group-hover:duration-500 group-hover:backdrop-blur-[4px]">
+              <article className="no-scrollbar overflow-y-auto flex cursor-pointer justify-center flex-col absolute group-hover:h-full top-0 left-0 overflow-auto lg:overflow-hidden rounded-[2rem] bg-black/50 h-0 w-full transition-all duration-500 box-border p-5 clip-path-style2 group-hover:left-0 group-hover:clip-path-circle group-hover:transition-all group-hover:duration-500 group-hover:backdrop-blur-[4px]">
                 <h1 className="text-3xl font-bold self-start drop-shadow-2xl">
                   {project}
                 </h1>
