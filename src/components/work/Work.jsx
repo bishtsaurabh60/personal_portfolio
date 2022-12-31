@@ -25,7 +25,7 @@ const Work = () => {
           ({ project, technologies, image, details, gitLink, live }, i) => (
             <article
               key={i}
-              className="group h-[14rem] w-full rounded-[2rem] transition-all relative hover:scale-[1.11] hover:z-30 shadow-2xl"
+              className="group h-[15rem] w-full rounded-[2rem] transition-all relative hover:scale-[1.11] hover:z-30 shadow-2xl"
             >
               <img
                 src={urlFor(image)}
