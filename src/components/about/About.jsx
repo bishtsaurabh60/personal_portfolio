@@ -46,7 +46,7 @@ const About = () => {
             target="_blank"
             className="inline-flex items-center gap-2 drop-shadow-lg"
           >
-            <span>Download CV</span>
+            <span>Download Resume</span>
             <IconContext.Provider value={{}}>
               <BsFileEarmarkRichtext />
             </IconContext.Provider>
