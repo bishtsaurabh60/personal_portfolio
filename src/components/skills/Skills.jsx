@@ -1,4 +1,4 @@
-import {useEffect,useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import SkillCard from "./SkillCard";
 import { UiContext } from "../../context";
 import { useSanityFetch } from "../customHook/useSanityFetch";
@@ -6,10 +6,14 @@ import { useSanityFetch } from "../customHook/useSanityFetch";
 const Skills = () => {
   const [isAnimate, setIsAnimate] = useState(false);
   const { skillsRef } = useContext(UiContext);
-  const [frontEnd] = useSanityFetch('*[_type == "skillsFront"]  | order(_createdAt asc)');
-  const [backEnd] = useSanityFetch('*[_type == "skillsBack"]  | order(_createdAt desc)');
+  const [frontEnd] = useSanityFetch(
+    '*[_type == "skillsFront"]  | order(_createdAt asc)'
+  );
+  const [backEnd] = useSanityFetch(
+    '*[_type == "skillsBack"]  | order(_createdAt desc)'
+  );
 
-  // Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport. 
+  // Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport.
   // here we used intersection Observer for triggering the animation on scroll...
   const options = {
     rootMargin: "0px",
@@ -36,10 +40,10 @@ const Skills = () => {
       ref={skillsRef}
       className="flex flex-col justify-center"
     >
-      <h1 className="self-center font-bold text-6xl mb-2 drop-shadow-lg tracking-wide">
+      <h1 className="self-center font-bold text-6xl mb-10 md:mb-14 lg:mb-12 drop-shadow-lg tracking-wide">
         Skills
       </h1>
-      <article className="flex place-items-center flex-col lg:flex-row">
+      <article className="flex place-items-center flex-col lg:flex-row gap-8 lg:gap-0">
         <SkillCard stack={frontEnd} skills="Frontend" isAnimate={isAnimate} />
         <SkillCard stack={backEnd} skills="Backend" isAnimate={isAnimate} />
       </article>

@@ -14,12 +14,12 @@ const About = () => {
     <section
       id="about"
       ref={aboutRef}
-      className="flex justify-center items-center h-full my-[9rem] flex-col md:flex-row text-center"
+      className="flex justify-center items-center h-full my-[5rem] lg:my-[9rem] flex-col md:flex-row text-center"
     >
       <article className="flex-1 relative flex justify-center items-center w-full h-full mb-8 ">
-        <article className="hidden absolute top-12 left-12 w-3/4 h-[30vh] rounded-[30px] overflow-hidden md:h-[70vh] bg-amber-400 md:flex shadow-2xl"></article>
+        <article className="hidden absolute top-12 left-12 w-3/4 md:w-[94%] lg:w-3/4 h-[30vh] rounded-[30px] overflow-hidden md:h-[40vh] lg:h-[70vh] bg-amber-400 md:flex shadow-2xl"></article>
 
-        <article className="w-3/4 h-[30vh] rounded-[30px] overflow-hidden relative md:h-[70vh] shadow-2xl">
+        <article className="w-3/4 md:w-[95%] lg:w-3/4 h-[30vh] rounded-[30px] left-2 overflow-hidden relative md:h-[40vh] lg:h-[70vh] shadow-2xl">
           <img
             src={aboutMySelf && urlFor(aboutMySelf[0].image)}
             alt="aboutImg"
@@ -39,18 +39,18 @@ const About = () => {
         <p className="text-justify mx-12 py-3">
           {aboutMySelf && aboutMySelf[0].aboutMe}
         </p>
-          <a
-            href={aboutMySelf && aboutMySelf[0].resume}
-            target="_blank"
-            className="inline-flex items-center gap-2 drop-shadow-lg"
-          >
-        <button className="inline-flex justify-center items-center w-[17rem] mt-2 mb-10 md:mb-0 text-xl font-semibold h-14 bg-amber-400 drop-shadow-2xl rounded-full hover:scale-110 hover:bg-amber-400 active:translate-y-[6px] transition-all">
+        <a
+          href={aboutMySelf && aboutMySelf[0].resume}
+          target="_blank"
+          className="inline-flex items-center gap-2 drop-shadow-lg"
+        >
+          <button className="inline-flex justify-center items-center w-[17rem] mt-2 mb-10 md:mb-0 text-xl font-semibold h-14 bg-amber-400 drop-shadow-2xl rounded-full hover:scale-110 hover:bg-amber-400 active:translate-y-[6px] transition-all">
             <span>Download Resume</span>
             <IconContext.Provider value={{}}>
               <BsFileEarmarkRichtext />
             </IconContext.Provider>
-        </button>
-          </a>
+          </button>
+        </a>
       </article>
     </section>
   );
