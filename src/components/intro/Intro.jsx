@@ -9,7 +9,7 @@ const Intro = () => {
   return (
     <section
       id="intro"
-      className="flex flex-col md:flex-row h-screen md:h-full md:mt-12 lg:h-screen lg:mt-5"
+      className="flex flex-col md:flex-row h-screen md:h-full md:pt-12 lg:h-screen lg:pt-5"
     >
       <article
         id="bio"

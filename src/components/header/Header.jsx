@@ -46,7 +46,7 @@ const Header = () => {
     <>
       <header ref={homeRef} id="header" className="relative">
         <section
-          className={`fixed z-50  top-0 left-0 right-0 flex justify-between item-center text-xl font-semibold ${showColorSm()}
+          className={`transition-all fixed z-50  top-0 left-0 right-0 flex justify-between item-center text-xl font-semibold ${showColorSm()}
             
           ${
             menu
@@ -57,7 +57,7 @@ const Header = () => {
           }`}
         >
           <article
-            className="ml-1 p-1 flex items-center md:hidden active:text-amber-400"
+            className="ml-1 p-1 flex items-center md:hidden active:text-amber-400 transition-all"
             onClick={() => setMenu(!menu)}
           >
             {menu ? (
@@ -82,9 +82,8 @@ const Header = () => {
                   ? "bg-[#222]/[0.6] text-white"
                   : "bg-[#fff]/[0.6]"
               }
-              
                md:bg-transparent
-               absolute w-full translate-y-[20%] left-0 md:flex drop-shadow-lg md:translate-y-0 md:static -top-[0.55rem] text-center group`}
+               absolute w-full left-0 md:flex drop-shadow-lg translate-y-[20%] md:translate-y-0 md:static -top-[0.55rem] text-center group`}
             >
               {navi.map(({ link, scroll }, i) => (
                 <li
